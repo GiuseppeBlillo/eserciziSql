@@ -24,7 +24,7 @@ FROM MEAL
 WHERE LOWER(NAME) LIKE '%s%';
 
 -- Using a SELECT statement with a WHERE clause, GROUP BY clause, and COUNT function, retrieve the number of orders for each meal that were ordered before '202X-XX-XX 18:00:00' (Replace the Xs with your current date)
-SELECT COUNT(*), MEAL_NAME
+SELECT MEAL_NAME, COUNT(*)
 FROM MEAL_ORDER_WITH_DETAILS
 WHERE TIME_MEAL_ORDERED < '2023-06-07 12:00:00'
 GROUP BY MEAL_NAME;
