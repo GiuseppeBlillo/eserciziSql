@@ -21,14 +21,15 @@ WHERE VEGAN = TRUE AND GLUTEN_FREE = TRUE;
 
 -- Using the INGREDIENT and MEAL tables, write a query to return the average number of ingredients per meal.
 
-SELECT M.NAME, COUNT(*) AS NUMBER_OF_INGREDIENT 
+SELECT M.NAME AS "Portate" , COUNT(I.MEAL_ID) AS "Conteggio degli ingredienti" 
 FROM MEAL M
 JOIN INGREDIENT I ON I.MEAL_ID = M.MEAL_ID
 GROUP BY M.NAME;
 
+
 -- Using the INGREDIENT and MEAL tables, write a query to return the names of meals that have more than 3 ingredients.
 
-SELECT DISTINCT M.NAME AS MEALS_WITH_MORE_THAN_3_INGREDIENT 
+SELECT DISTINCT M.NAME AS "Portate con più di 3 ingredienti"
 FROM MEAL M
 JOIN INGREDIENT I ON M.MEAL_ID = I.MEAL_ID
 GROUP BY M.NAME
@@ -36,10 +37,10 @@ HAVING COUNT(I.NAME)>3;
 
 -- Using the following table definitions, write an inner join for the two tables
 
-SELECT * FROM CUSTOMER C INNER 
-JOIN O ON C.CUSTOMER_ID = O.CUSTOMER_ID;
+SELECT * FROM CUSTOMER C 
+INNER JOIN O ON C.CUSTOMER_ID = O.CUSTOMER_ID;
 
 -- Using the following table definitions, write an inner join for the two tables
 
-SELECT * FROM INVENTORY I INNER 
-JOIN P ON I.PRODUCT_ID = P.PRODUCT_ID;
+SELECT * FROM INVENTORY I 
+INNER JOIN P ON I.PRODUCT_ID = P.PRODUCT_ID;
